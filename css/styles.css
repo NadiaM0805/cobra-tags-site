@@ -71,50 +71,53 @@ nav a{color:#1f2937; font-weight:600; font-size:clamp(13px,2vw,15px)}
 
 /* Mobile-specific improvements */
 @media (max-width: 767px) {
-  .container{padding:40px 16px}
-  .topbar{flex-direction:column; align-items:center; gap:16px; text-align:center}
-  .topbar nav{order:2; justify-content:center}
-  .topbar .btn{order:3}
-  .hero{padding:0; min-height:100vh; display:flex; align-items:center; margin:0 -16px}
-  .hero .container{padding:40px 16px}
-  .hero-grid{text-align:center; gap:clamp(40px,8vw,60px)}
-  .hero h1{font-size:clamp(40px,8vw,60px); line-height:1.1; margin:clamp(20px,4vw,30px) 0 clamp(16px,3vw,24px)}
-  .sub{font-size:clamp(22px,5vw,28px); margin-bottom:clamp(30px,6vw,40px)}
-  .badges{justify-content:center; gap:clamp(16px,4vw,24px); margin:clamp(24px,5vw,32px) 0}
-  .badge{font-size:clamp(16px,4vw,20px); padding:clamp(16px,3vw,20px) clamp(20px,4vw,24px)}
-  .product-shot{margin-top:clamp(40px,8vw,60px); min-height:clamp(400px,70vw,500px)}
-  .steps{grid-template-columns:1fr; gap:clamp(24px,5vw,32px)}
-  .step{padding:clamp(24px,5vw,32px); font-size:clamp(18px,4vw,22px)}
-  .price-grid{grid-template-columns:1fr; gap:clamp(24px,5vw,32px)}
-  .price-card{padding:clamp(32px,6vw,40px)}
-  .grid.cards{grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:clamp(20px,4vw,28px)}
-  .card .cap{padding:clamp(20px,4vw,24px); font-size:clamp(18px,4vw,22px)}
-  .section{padding:clamp(80px,15vw,120px) 0}
-  .section h2{font-size:clamp(36px,7vw,50px); margin-bottom:clamp(24px,5vw,32px)}
-  .section p.lead{font-size:clamp(20px,4vw,24px); margin-bottom:clamp(28px,6vw,36px)}
-  .btn{padding:clamp(18px,4vw,24px) clamp(24px,5vw,32px); font-size:clamp(18px,4vw,22px)}
-  .video-wrap{gap:clamp(28px,6vw,36px)}
-  .video{border-radius:clamp(20px,4vw,24px)}
-  .instructions{padding:clamp(24px,5vw,32px)}
-  .contact{gap:clamp(28px,6vw,36px)}
-  .panel{padding:clamp(24px,5vw,32px)}
-  .site-footer{padding:clamp(60px,12vw,80px) 0}
+  .container{padding:40px}
+  .topbar{flex-direction:row; align-items:center; justify-content:space-between; gap:12px; text-align:left}
+  .topbar nav ul{gap:12px}
+  .topbar nav li:first-child{display:none}
+  .topbar .btn{padding:8px 12px; font-size:12px}
+  .hero{padding:0; min-height:100vh; display:flex; align-items:center; margin:0 -40px}
+  .hero .container{padding:40px}
+  .hero-grid{text-align:center; gap:40px}
+  .hero h1{font-size:32px; line-height:1.1; margin:20px 0 16px}
+  .sub{font-size:16px; margin-bottom:30px}
+  .badges{justify-content:center; gap:16px; margin:24px 0}
+  .badge{font-size:14px; padding:12px 16px}
+  .product-shot{margin-top:40px; min-height:400px}
+  .steps{grid-template-columns:1fr; gap:24px}
+  .step{padding:24px; font-size:16px}
+  .price-grid{grid-template-columns:1fr; gap:24px}
+  .price-card{padding:32px}
+  .grid.cards{grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px}
+  .card .cap{padding:20px; font-size:16px}
+  .section{padding:80px 0}
+  .section h2{font-size:24px; margin-bottom:24px}
+  .section p.lead{font-size:16px; margin-bottom:28px}
+  .btn{padding:16px 24px; font-size:16px}
+  .video-wrap{gap:28px}
+  .video{border-radius:20px}
+  .instructions{padding:24px; font-size:16px}
+  .contact{gap:28px}
+  .panel{padding:24px; font-size:16px}
+  .site-footer{padding:60px 0; font-size:16px}
+  .fine{font-size:12px}
 }
 
 @media (max-width: 480px) {
-  .container{padding:40px 12px}
-  .hero{padding:0; min-height:100vh; margin:0 -12px}
-  .hero .container{padding:40px 12px}
-  .section{padding:clamp(60px,12vw,100px) 0}
-  .hero h1{font-size:clamp(36px,7vw,48px)}
-  .sub{font-size:clamp(20px,4.5vw,24px)}
-  .btn{padding:clamp(16px,3.5vw,20px) clamp(20px,4.5vw,28px); font-size:clamp(16px,3.5vw,20px)}
-  .badge{padding:clamp(14px,3vw,18px) clamp(18px,3.5vw,22px); font-size:clamp(14px,3.5vw,18px)}
-  .card .cap{padding:clamp(18px,3.5vw,22px); font-size:clamp(16px,3.5vw,20px)}
-  .step{padding:clamp(20px,4vw,28px); font-size:clamp(16px,3.5vw,20px)}
-  .price-card{padding:clamp(28px,5vw,36px)}
-  .panel{padding:clamp(20px,4vw,28px)}
-  .section h2{font-size:clamp(32px,6vw,40px)}
-  .section p.lead{font-size:clamp(18px,3.5vw,22px)}
+  .container{padding:40px}
+  .hero{padding:0; min-height:100vh; margin:0 -40px}
+  .hero .container{padding:40px}
+  .section{padding:60px 0}
+  .hero h1{font-size:32px}
+  .sub{font-size:16px}
+  .btn{padding:14px 20px; font-size:16px}
+  .badge{padding:10px 14px; font-size:14px}
+  .card .cap{padding:16px; font-size:16px}
+  .step{padding:20px; font-size:16px}
+  .price-card{padding:28px}
+  .panel{padding:20px; font-size:16px}
+  .section h2{font-size:24px}
+  .section p.lead{font-size:16px}
+  .fine{font-size:12px}
 }
 
