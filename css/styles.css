@@ -72,16 +72,16 @@ nav a{color:#1f2937; font-weight:600; font-size:clamp(13px,2vw,15px)}
 /* Mobile-specific improvements */
 @media (max-width: 767px) {
   .container{padding:60px !important}
-  .topbar{flex-direction:row !important; align-items:center !important; justify-content:space-between !important; gap:0 !important; text-align:left !important; padding:0 60px !important; margin-bottom:32px !important}
+  .topbar{flex-direction:row !important; align-items:center !important; justify-content:space-between !important; gap:0 !important; text-align:left !important; padding:0 60px !important; margin-bottom:24px !important}
   .topbar nav{display:none !important}
   .topbar .btn{padding:10px 16px !important; font-size:14px !important; margin:0 !important}
   .hero{padding:0 !important; min-height:100vh; display:flex; align-items:center; margin:0 !important}
-  .hero .container{padding:60px !important}
+  .hero .container{padding:60px !important; padding-top:24px !important}
   .hero-grid{text-align:center !important; gap:40px}
   .hero h1{font-size:40px !important; line-height:1.1; margin:20px 0 16px; text-align:center !important}
-  .sub{font-size:16px !important; margin-bottom:30px; text-align:center !important}
+  .sub{font-size:18px !important; margin-bottom:30px; text-align:center !important}
   .badges{justify-content:center !important; gap:16px; margin:24px 0}
-  .badge{font-size:14px !important; padding:12px 16px}
+  .badge{font-size:18px !important; padding:12px 16px}
   .product-shot{margin-top:40px; min-height:400px}
   .steps{grid-template-columns:1fr; gap:24px}
   .step{padding:24px; font-size:16px !important}
@@ -92,7 +92,7 @@ nav a{color:#1f2937; font-weight:600; font-size:clamp(13px,2vw,15px)}
   .section{padding:80px 0}
   .section h2{font-size:24px !important; margin-bottom:24px}
   .section p.lead{font-size:16px !important; margin-bottom:28px}
-  .btn{padding:16px 24px; font-size:16px !important}
+  .btn{padding:16px 24px; font-size:16px !important; display:inline-block !important; margin:0 auto !important}
   .video-wrap{gap:28px}
   .video{border-radius:20px}
   .instructions{padding:24px; font-size:16px !important}
@@ -104,14 +104,14 @@ nav a{color:#1f2937; font-weight:600; font-size:clamp(13px,2vw,15px)}
 
 @media (max-width: 480px) {
   .container{padding:50px !important}
-  .topbar{padding:0 50px !important; margin-bottom:32px !important}
+  .topbar{padding:0 50px !important; margin-bottom:24px !important}
   .hero{padding:0 !important; min-height:100vh; margin:0 !important}
-  .hero .container{padding:50px !important}
+  .hero .container{padding:50px !important; padding-top:24px !important}
   .section{padding:60px 0}
   .hero h1{font-size:40px !important; text-align:center !important}
-  .sub{font-size:16px !important; text-align:center !important}
-  .btn{padding:14px 20px; font-size:16px !important}
-  .badge{padding:10px 14px; font-size:14px !important}
+  .sub{font-size:18px !important; text-align:center !important}
+  .btn{padding:14px 20px; font-size:16px !important; display:inline-block !important; margin:0 auto !important}
+  .badge{padding:10px 14px; font-size:18px !important}
   .card .cap{padding:16px; font-size:16px !important}
   .step{padding:20px; font-size:16px !important}
   .price-card{padding:28px}
