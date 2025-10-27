@@ -71,53 +71,53 @@ nav a{color:#1f2937; font-weight:600; font-size:clamp(13px,2vw,15px)}
 
 /* Mobile-specific improvements */
 @media (max-width: 767px) {
-  .container{padding:40px}
-  .topbar{flex-direction:row; align-items:center; justify-content:space-between; gap:12px; text-align:left}
+  .container{padding:40px !important}
+  .topbar{flex-direction:row; align-items:center; justify-content:space-between; gap:12px; text-align:left; padding:0 40px !important}
   .topbar nav ul{gap:12px}
   .topbar nav li:first-child{display:none}
   .topbar .btn{padding:8px 12px; font-size:12px}
-  .hero{padding:0; min-height:100vh; display:flex; align-items:center; margin:0 -40px}
-  .hero .container{padding:40px}
+  .hero{padding:0 !important; min-height:100vh; display:flex; align-items:center; margin:0 !important}
+  .hero .container{padding:40px !important}
   .hero-grid{text-align:center; gap:40px}
-  .hero h1{font-size:32px; line-height:1.1; margin:20px 0 16px}
-  .sub{font-size:16px; margin-bottom:30px}
+  .hero h1{font-size:32px !important; line-height:1.1; margin:20px 0 16px}
+  .sub{font-size:16px !important; margin-bottom:30px}
   .badges{justify-content:center; gap:16px; margin:24px 0}
-  .badge{font-size:14px; padding:12px 16px}
+  .badge{font-size:14px !important; padding:12px 16px}
   .product-shot{margin-top:40px; min-height:400px}
   .steps{grid-template-columns:1fr; gap:24px}
-  .step{padding:24px; font-size:16px}
+  .step{padding:24px; font-size:16px !important}
   .price-grid{grid-template-columns:1fr; gap:24px}
   .price-card{padding:32px}
   .grid.cards{grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px}
-  .card .cap{padding:20px; font-size:16px}
+  .card .cap{padding:20px; font-size:16px !important}
   .section{padding:80px 0}
-  .section h2{font-size:24px; margin-bottom:24px}
-  .section p.lead{font-size:16px; margin-bottom:28px}
-  .btn{padding:16px 24px; font-size:16px}
+  .section h2{font-size:24px !important; margin-bottom:24px}
+  .section p.lead{font-size:16px !important; margin-bottom:28px}
+  .btn{padding:16px 24px; font-size:16px !important}
   .video-wrap{gap:28px}
   .video{border-radius:20px}
-  .instructions{padding:24px; font-size:16px}
+  .instructions{padding:24px; font-size:16px !important}
   .contact{gap:28px}
-  .panel{padding:24px; font-size:16px}
-  .site-footer{padding:60px 0; font-size:16px}
-  .fine{font-size:12px}
+  .panel{padding:24px; font-size:16px !important}
+  .site-footer{padding:60px 0; font-size:16px !important}
+  .fine{font-size:12px !important}
 }
 
 @media (max-width: 480px) {
-  .container{padding:40px}
-  .hero{padding:0; min-height:100vh; margin:0 -40px}
-  .hero .container{padding:40px}
+  .container{padding:40px !important}
+  .hero{padding:0 !important; min-height:100vh; margin:0 !important}
+  .hero .container{padding:40px !important}
   .section{padding:60px 0}
-  .hero h1{font-size:32px}
-  .sub{font-size:16px}
-  .btn{padding:14px 20px; font-size:16px}
-  .badge{padding:10px 14px; font-size:14px}
-  .card .cap{padding:16px; font-size:16px}
-  .step{padding:20px; font-size:16px}
+  .hero h1{font-size:32px !important}
+  .sub{font-size:16px !important}
+  .btn{padding:14px 20px; font-size:16px !important}
+  .badge{padding:10px 14px; font-size:14px !important}
+  .card .cap{padding:16px; font-size:16px !important}
+  .step{padding:20px; font-size:16px !important}
   .price-card{padding:28px}
-  .panel{padding:20px; font-size:16px}
-  .section h2{font-size:24px}
-  .section p.lead{font-size:16px}
-  .fine{font-size:12px}
+  .panel{padding:20px; font-size:16px !important}
+  .section h2{font-size:24px !important}
+  .section p.lead{font-size:16px !important}
+  .fine{font-size:12px !important}
 }
 
