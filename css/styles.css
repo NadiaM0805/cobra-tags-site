@@ -75,35 +75,44 @@ nav a{color:#1f2937; font-weight:600; font-size:clamp(13px,2vw,15px)}
   .topbar{flex-direction:column; align-items:center; gap:16px; text-align:center}
   .topbar nav{order:2; justify-content:center}
   .topbar .btn{order:3}
-  .hero{padding:32px 0 24px}
-  .hero-grid{text-align:center}
-  .hero h1{font-size:clamp(24px,5vw,32px)}
-  .sub{font-size:clamp(14px,3vw,16px)}
-  .badges{justify-content:center}
-  .badge{font-size:clamp(11px,2.5vw,13px); padding:clamp(6px,1.5vw,8px) clamp(8px,2vw,10px)}
-  .product-shot{margin-top:24px; min-height:clamp(200px,40vw,280px)}
-  .steps{grid-template-columns:1fr}
-  .price-grid{grid-template-columns:1fr}
-  .grid.cards{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
-  .section{padding:32px 0}
-  .section h2{font-size:clamp(20px,4vw,28px)}
-  .section p.lead{font-size:clamp(13px,2.5vw,16px)}
-  .btn{padding:clamp(8px,2vw,10px) clamp(12px,3vw,14px); font-size:clamp(12px,2.5vw,14px)}
+  .hero{padding:clamp(60px,12vw,80px) 0 clamp(40px,8vw,60px); min-height:100vh; display:flex; align-items:center}
+  .hero-grid{text-align:center; gap:clamp(32px,6vw,48px)}
+  .hero h1{font-size:clamp(32px,7vw,48px); line-height:1.1; margin:clamp(16px,3vw,24px) 0 clamp(12px,2vw,16px)}
+  .sub{font-size:clamp(18px,4vw,22px); margin-bottom:clamp(24px,5vw,32px)}
+  .badges{justify-content:center; gap:clamp(12px,3vw,16px); margin:clamp(20px,4vw,28px) 0}
+  .badge{font-size:clamp(14px,3vw,16px); padding:clamp(12px,2.5vw,16px) clamp(16px,3vw,20px)}
+  .product-shot{margin-top:clamp(32px,6vw,48px); min-height:clamp(300px,60vw,400px)}
+  .steps{grid-template-columns:1fr; gap:clamp(20px,4vw,28px)}
+  .step{padding:clamp(20px,4vw,28px); font-size:clamp(16px,3vw,18px)}
+  .price-grid{grid-template-columns:1fr; gap:clamp(20px,4vw,28px)}
+  .price-card{padding:clamp(24px,5vw,32px)}
+  .grid.cards{grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:clamp(16px,3vw,24px)}
+  .card .cap{padding:clamp(16px,3vw,20px); font-size:clamp(16px,3vw,18px)}
+  .section{padding:clamp(60px,12vw,80px) 0}
+  .section h2{font-size:clamp(28px,6vw,40px); margin-bottom:clamp(20px,4vw,28px)}
+  .section p.lead{font-size:clamp(16px,3.5vw,20px); margin-bottom:clamp(24px,5vw,32px)}
+  .btn{padding:clamp(14px,3vw,18px) clamp(20px,4vw,24px); font-size:clamp(16px,3vw,18px)}
+  .video-wrap{gap:clamp(24px,5vw,32px)}
+  .video{border-radius:clamp(16px,3vw,20px)}
+  .instructions{padding:clamp(20px,4vw,28px)}
+  .contact{gap:clamp(24px,5vw,32px)}
+  .panel{padding:clamp(20px,4vw,28px)}
+  .site-footer{padding:clamp(40px,8vw,60px) 0}
 }
 
 @media (max-width: 480px) {
   .container{padding:12px}
-  .hero{padding:24px 0 16px}
-  .section{padding:24px 0}
-  .hero h1{font-size:clamp(20px,4.5vw,24px)}
-  .sub{font-size:clamp(13px,2.8vw,14px)}
-  .btn{padding:8px 12px; font-size:12px}
-  .badge{padding:6px 8px; font-size:10px}
-  .card .cap{padding:8px 10px; font-size:11px}
-  .step{padding:10px; font-size:11px}
-  .price-card{padding:14px}
-  .panel{padding:12px}
-  .section h2{font-size:clamp(18px,3.5vw,20px)}
-  .section p.lead{font-size:clamp(12px,2.2vw,13px)}
+  .hero{padding:clamp(50px,10vw,70px) 0 clamp(30px,6vw,50px); min-height:100vh}
+  .section{padding:clamp(50px,10vw,70px) 0}
+  .hero h1{font-size:clamp(28px,6vw,40px)}
+  .sub{font-size:clamp(16px,3.5vw,20px)}
+  .btn{padding:clamp(12px,2.5vw,16px) clamp(16px,3.5vw,20px); font-size:clamp(14px,2.8vw,16px)}
+  .badge{padding:clamp(10px,2vw,14px) clamp(14px,2.5vw,18px); font-size:clamp(12px,2.5vw,14px)}
+  .card .cap{padding:clamp(14px,2.5vw,18px); font-size:clamp(14px,2.5vw,16px)}
+  .step{padding:clamp(16px,3vw,24px); font-size:clamp(14px,2.5vw,16px)}
+  .price-card{padding:clamp(20px,4vw,28px)}
+  .panel{padding:clamp(16px,3vw,24px)}
+  .section h2{font-size:clamp(24px,5vw,32px)}
+  .section p.lead{font-size:clamp(14px,3vw,18px)}
 }
 
