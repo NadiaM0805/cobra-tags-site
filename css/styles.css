@@ -1,0 +1,56 @@
+:root{
+  --brand:#D33C2D; --brand-dark:#B22F23; --ink:#111; --muted:#667085;
+  --bg:#fff; --panel:#f7f7f8; --ring:rgba(211,60,45,.25); --radius:16px;
+}
+*{box-sizing:border-box} html,body{margin:0}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  color:var(--ink); background:var(--bg); line-height:1.55}
+.container{max-width:1128px; margin-inline:auto; padding:clamp(16px,2vw,28px)}
+a{color:var(--brand); text-decoration:none} a:hover{text-decoration:underline}
+.site-header{position:sticky; top:0; backdrop-filter:saturate(160%) blur(6px);
+  background:color-mix(in srgb, var(--bg) 85%, transparent); border-bottom:1px solid #ececec; z-index:40}
+.topbar{display:flex; align-items:center; justify-content:space-between; gap:16px}
+.logo{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px; color:inherit}
+.logo-mark{width:28px; height:28px; border-radius:50%; background:#222; box-shadow:inset 0 0 0 2px #000, inset 0 0 0 5px #222}
+nav ul{list-style:none; display:flex; gap:18px; margin:0; padding:0}
+nav a{color:#1f2937; font-weight:600}
+.btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; border:1px solid #e7e7e9; background:#fff; font-weight:700}
+.btn.primary{border-color:transparent; background:var(--brand); color:#fff; box-shadow:0 10px 18px -8px var(--ring)}
+.btn.primary:hover{background:var(--brand-dark)}
+.hero{padding:56px 0 24px}
+.hero-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:36px; align-items:center}
+.eyebrow{display:inline-flex; gap:10px; font-weight:700; color:var(--brand)}
+.hero h1{font-size:clamp(32px,4.8vw,60px); line-height:1.05; margin:10px 0 8px}
+.sub{color:#4b5563; font-size:clamp(16px,2vw,18px)}
+.badges{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 8px}
+.badge{display:inline-flex; align-items:center; gap:10px; padding:10px 12px; border:1px solid #e8e8ea; border-radius:12px; background:#fff}
+.badge img{width:22px; height:22px}
+.product-shot{background:radial-gradient(60% 60% at 50% 42%, #efefef, #ffffff 60%);
+  border-radius:24px; border:1px solid #ededf0; padding:28px; min-height:380px; display:flex; align-items:center; justify-content:center}
+.product-shot img{width:min(88%,520px); height:auto; filter:drop-shadow(0 30px 35px rgba(0,0,0,.16))}
+.section{padding:64px 0}
+.section h2{font-size:clamp(26px,3vw,38px); margin:0 0 8px}
+.section p.lead{color:var(--muted); margin:0 0 26px}
+.grid{display:grid; gap:18px}
+.grid.cards{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--panel); border:1px solid #ececf0; border-radius:var(--radius); overflow:hidden}
+.card img{display:block; width:100%; aspect-ratio:4/3; object-fit:cover}
+.card .cap{padding:12px 14px; font-weight:600}
+.steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px}
+.step{border:1px solid #ececf0; border-radius:var(--radius); padding:16px; background:#fff}
+.video-wrap{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+.video{aspect-ratio:16/9; width:100%; background:#000; border-radius:16px; overflow:hidden; border:1px solid #1f2937}
+.instructions{background:#fff; border:1px solid #ececf0; border-radius:16px; padding:18px}
+.price-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px}
+.price-card{border:1px solid #ececf0; border-radius:20px; padding:22px; background:#fff}
+.price{font-size:clamp(26px,3vw,36px); font-weight:800}
+.price small{font-weight:600; color:var(--muted)}
+.features{margin:12px 0 0; padding:0; list-style:none}
+.features li{margin:8px 0}
+.contact{display:grid; grid-template-columns:1.2fr 1fr; gap:24px}
+.panel{background:#fff; border:1px solid #ececf0; border-radius:16px; padding:18px}
+.site-footer{padding:40px 0; border-top:1px solid #ececec; color:#6b7280}
+.footer-row{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
+.fine{font-size:13px; color:#98a2b3}
+@media (max-width:900px){ .hero-grid{grid-template-columns:1fr} .video-wrap{grid-template-columns:1fr} .contact{grid-template-columns:1fr} }
+
