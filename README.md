@@ -17,3 +17,4 @@ Buildless, responsive one-pager. Vanilla HTML/CSS/JS, modular via `/sections`.
 
 © Cobra Cords. PO Box 210, Liverpool, L18 9SWF.
 
+# Mobile responsiveness improvements deployed Mon Oct 27 21:23:47 IST 2025
