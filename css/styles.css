@@ -72,6 +72,7 @@ nav a{color:#1f2937; font-weight:600; font-size:clamp(13px,2vw,15px)}
 /* Mobile-specific improvements */
 @media (max-width: 767px) {
   .container{padding:60px !important}
+  .site-header .container{padding:0 60px !important}
   .topbar{flex-direction:row !important; align-items:center !important; justify-content:space-between !important; gap:0 !important; text-align:left !important; padding:0 60px !important; margin-bottom:24px !important}
   .topbar nav{display:none !important}
   .topbar .btn{padding:10px 16px !important; font-size:14px !important; margin:0 !important}
@@ -104,6 +105,7 @@ nav a{color:#1f2937; font-weight:600; font-size:clamp(13px,2vw,15px)}
 
 @media (max-width: 480px) {
   .container{padding:50px !important}
+  .site-header .container{padding:0 50px !important}
   .topbar{padding:0 50px !important; margin-bottom:24px !important}
   .hero{padding:0 !important; min-height:100vh; margin:0 !important}
   .hero .container{padding:50px !important; padding-top:24px !important}
