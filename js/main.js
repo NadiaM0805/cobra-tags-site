@@ -36,5 +36,13 @@ function initBehaviors(){
     const email = document.querySelector('#email')?.textContent?.trim();
     if(email){ navigator.clipboard.writeText(email).then(()=>alert('Email copied: '+email)); }
   });
+
+  // Play jingle when user clicks "See prices"
+  const jingle = document.getElementById('cobra-audio');
+  document.addEventListener('click', e => {
+    const pricesBtn = e.target.closest('a[href="#pricing"]');
+    if (!pricesBtn || !jingle) return;
+    try { jingle.muted = false; jingle.play(); } catch (_) {}
+  });
 }
 
