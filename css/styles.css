@@ -25,7 +25,7 @@ nav a{color:#1f2937; font-weight:600; font-size:clamp(13px,2vw,15px)}
 .sub{color:#4b5563; font-size:clamp(15px,2.5vw,18px); margin-bottom:clamp(12px,3vw,18px)}
 .badges{display:flex; flex-wrap:wrap; gap:clamp(8px,2vw,10px); margin:clamp(12px,3vw,18px) 0 clamp(6px,1.5vw,8px)}
 .badge{display:inline-flex; align-items:center; gap:clamp(6px,1.5vw,10px); padding:clamp(8px,2vw,10px) clamp(10px,2.5vw,12px); border:1px solid #e8e8ea; border-radius:12px; background:#fff; font-size:clamp(12px,2vw,14px)}
-.badge img{width:clamp(18px,3vw,22px); height:clamp(18px,3vw,22px)}
+.badge img{width:clamp(36px,6vw,44px); height:clamp(36px,6vw,44px)}
 .product-shot{background:radial-gradient(60% 60% at 50% 42%, #efefef, #ffffff 60%);
   border-radius:clamp(16px,4vw,24px); border:1px solid #ededf0; padding:clamp(16px,4vw,28px); min-height:clamp(280px,50vw,380px); display:flex; align-items:center; justify-content:center; margin-top:clamp(16px,4vw,24px)}
 .product-shot img{width:min(85%,clamp(200px,40vw,520px)); height:auto; filter:drop-shadow(0 20px 25px rgba(0,0,0,.12))}
