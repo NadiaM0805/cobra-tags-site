@@ -55,31 +55,21 @@ function initBehaviors(){
   observer.observe(document.body, { childList: true, subtree: true });
   
   function setupVideoHandlers() {
-    // Remove old handlers to avoid duplicates
-    document.querySelectorAll('.phone-shot, .video-wrap > div').forEach(container => {
-      const newContainer = container.cloneNode(true);
-      container.parentNode?.replaceChild(newContainer, container);
-    });
-    
     // Find all video containers and attach handlers
     document.querySelectorAll('.phone-shot, .video-wrap > div').forEach(container => {
       const video = container.querySelector('video.precision-video, video.video');
-      if (!video || container.dataset.handlerAttached) return;
+      if (!video || container.dataset.handlerAttached === 'true') return;
       
       container.dataset.handlerAttached = 'true';
       
-      container.addEventListener('click', (e) => {
+      const clickHandler = (e) => {
         e.preventDefault();
         e.stopPropagation();
         handleVideoClick(video);
-      });
+      };
       
-      // Also allow direct clicks on video
-      video.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        handleVideoClick(video);
-      });
+      container.addEventListener('click', clickHandler);
+      video.addEventListener('click', clickHandler);
     });
   }
   
