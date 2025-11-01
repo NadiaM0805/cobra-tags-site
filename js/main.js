@@ -44,5 +44,46 @@ function initBehaviors(){
     if (!pricesBtn || !jingle) return;
     try { jingle.muted = false; jingle.play(); } catch (_) {}
   });
+
+  // Fullscreen video functionality with sound
+  document.addEventListener('click', e => {
+    const video = e.target.closest('video.precision-video, video.video');
+    if (!video) return;
+    
+    // Unmute video when user clicks (enables sound)
+    if (video.muted) {
+      video.muted = false;
+      video.play().catch(err => console.log('Play error:', err));
+    }
+    
+    // Check if video supports fullscreen
+    if (video.requestFullscreen) {
+      video.requestFullscreen().catch(err => console.log('Fullscreen error:', err));
+    } else if (video.webkitRequestFullscreen) {
+      video.webkitRequestFullscreen();
+    } else if (video.mozRequestFullScreen) {
+      video.mozRequestFullScreen();
+    } else if (video.msRequestFullscreen) {
+      video.msRequestFullscreen();
+    }
+  });
+
+  // Restore video state when exiting fullscreen (keep sound unmuted)
+  document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement) {
+      const videos = document.querySelectorAll('video.precision-video, video.video');
+      videos.forEach(v => {
+        if (v.paused) v.play(); // Resume if paused
+      });
+    }
+  });
+  document.addEventListener('webkitfullscreenchange', () => {
+    if (!document.webkitFullscreenElement) {
+      const videos = document.querySelectorAll('video.precision-video, video.video');
+      videos.forEach(v => {
+        if (v.paused) v.play();
+      });
+    }
+  });
 }
 

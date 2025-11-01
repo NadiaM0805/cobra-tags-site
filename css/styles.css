@@ -56,6 +56,58 @@ nav a{color:#1f2937; font-weight:600; font-size:clamp(13px,2vw,15px)}
   appearance:none;
   display:block;
   object-fit:cover;
+  /* Make it clickable for fullscreen */
+  cursor:pointer;
+  transition:opacity 0.2s;
+}
+.video:hover{
+  opacity:0.95;
+}
+/* Fullscreen and sound icon overlay for how-it-works video */
+.video-wrap > div{
+  position:relative;
+}
+.video-wrap > div::before{
+  content:'🔊';
+  position:absolute;
+  top:16px;
+  left:16px;
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,0.6);
+  color:#fff;
+  border-radius:8px;
+  font-size:20px;
+  opacity:0;
+  transition:opacity 0.2s;
+  pointer-events:none;
+  z-index:10;
+}
+.video-wrap > div::after{
+  content:'⛶';
+  position:absolute;
+  top:16px;
+  right:16px;
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,0.6);
+  color:#fff;
+  border-radius:8px;
+  font-size:20px;
+  opacity:0;
+  transition:opacity 0.2s;
+  pointer-events:none;
+  z-index:10;
+}
+.video-wrap > div:hover::before,
+.video-wrap > div:hover::after{
+  opacity:1;
 }
 .instructions{background:#fff; border:1px solid #ececf0; border-radius:clamp(12px,3vw,16px); padding:clamp(14px,3.5vw,18px)}
 .price-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(clamp(240px,45vw,260px),1fr)); gap:clamp(12px,3vw,18px)}
@@ -106,10 +158,61 @@ nav a{color:#1f2937; font-weight:600; font-size:clamp(13px,2vw,15px)}
   -webkit-appearance:none;
   appearance:none;
   object-fit:cover;
-  /* Make it look like an image - no interaction needed */
-  pointer-events:none;
+  /* Make it clickable for fullscreen */
+  cursor:pointer;
+  position:relative;
   /* Ensure smooth playback */
   will-change:auto;
+  transition:opacity 0.2s;
+}
+.precision-video:hover{
+  opacity:0.95;
+}
+/* Fullscreen and sound icon overlay for precision video */
+.phone-shot{
+  position:relative;
+}
+.phone-shot::before{
+  content:'🔊';
+  position:absolute;
+  top:16px;
+  left:16px;
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,0.6);
+  color:#fff;
+  border-radius:8px;
+  font-size:20px;
+  opacity:0;
+  transition:opacity 0.2s;
+  pointer-events:none;
+  z-index:10;
+}
+.phone-shot::after{
+  content:'⛶';
+  position:absolute;
+  top:16px;
+  right:16px;
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,0.6);
+  color:#fff;
+  border-radius:8px;
+  font-size:20px;
+  opacity:0;
+  transition:opacity 0.2s;
+  pointer-events:none;
+  z-index:10;
+}
+.phone-shot:hover::before,
+.phone-shot:hover::after{
+  opacity:1;
 }
 /* Remove native video control styling globally */
 video::-webkit-media-controls-panel,
