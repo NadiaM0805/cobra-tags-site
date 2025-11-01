@@ -274,3 +274,47 @@ video.precision-video::-moz-media-controls-panel {
   .ping-grid{grid-template-columns:1fr}
 }
 
+/* Full-width video section at bottom */
+.video-fullwidth-section{
+  width:100%;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+}
+.fullwidth-video{
+  width:100%;
+  height:auto;
+  display:block;
+  border:0;
+  outline:0;
+  /* Hide native controls styling */
+  -webkit-appearance:none;
+  appearance:none;
+  object-fit:cover;
+  cursor:pointer;
+  position:relative;
+  will-change:auto;
+  transition:opacity 0.2s;
+}
+.fullwidth-video:hover{
+  opacity:0.95;
+}
+/* Hide native video control styling for fullwidth video */
+.fullwidth-video::-webkit-media-controls-panel,
+.fullwidth-video::-webkit-media-controls-play-button,
+.fullwidth-video::-webkit-media-controls-current-time-display,
+.fullwidth-video::-webkit-media-controls-time-remaining-display,
+.fullwidth-video::-webkit-media-controls-timeline,
+.fullwidth-video::-webkit-media-controls-volume-slider,
+.fullwidth-video::-webkit-media-controls-mute-button,
+.fullwidth-video::-webkit-media-controls-fullscreen-button {
+  display:none !important;
+}
+.fullwidth-video::-webkit-media-controls-enclosure {
+  display:none !important;
+}
+.fullwidth-video::-moz-media-controls,
+.fullwidth-video::-moz-media-controls-panel {
+  display:none !important;
+}
+

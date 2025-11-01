@@ -107,6 +107,43 @@ function initBehaviors(){
       
       console.log('Video handler attached to precision video');
     });
+    
+    // Setup handlers for fullwidth video at bottom
+    document.querySelectorAll('.video-fullwidth-section').forEach(section => {
+      const video = section.querySelector('video.fullwidth-video');
+      if (!video || section.dataset.handlerAttached === 'true') return;
+      
+      section.dataset.handlerAttached = 'true';
+      
+      // Ensure video has volume set initially
+      if (video.volume === 0 || video.volume < 1) {
+        video.volume = 1.0;
+      }
+      
+      // Ensure video autoplays
+      if (video.paused) {
+        video.play().catch(err => {
+          console.log('Fullwidth video autoplay blocked:', err);
+        });
+      }
+      
+      // Re-enable autoplay if video ends (for loop)
+      video.addEventListener('ended', () => {
+        video.currentTime = 0;
+        video.play();
+      });
+      
+      const clickHandler = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        handleVideoClick(video);
+      };
+      
+      section.addEventListener('click', clickHandler);
+      video.addEventListener('click', clickHandler);
+      
+      console.log('Video handler attached to fullwidth video');
+    });
   }
   
   function handleVideoClick(video) {
