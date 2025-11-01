@@ -70,9 +70,10 @@ function initBehaviors(){
   observer.observe(document.body, { childList: true, subtree: true });
   
   function setupVideoHandlers() {
-    // Find all video containers and attach handlers
-    document.querySelectorAll('.phone-shot, .video-wrap > div').forEach(container => {
-      const video = container.querySelector('video.precision-video, video.video');
+    // Only attach handlers to precision video (seamless, no controls)
+    // How-it-works video has native controls, so we skip it
+    document.querySelectorAll('.phone-shot').forEach(container => {
+      const video = container.querySelector('video.precision-video');
       if (!video || container.dataset.handlerAttached === 'true') return;
       
       container.dataset.handlerAttached = 'true';
