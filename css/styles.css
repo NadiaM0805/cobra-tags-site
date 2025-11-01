@@ -21,6 +21,51 @@ nav a{color:#1f2937; font-weight:600; font-size:clamp(13px,2vw,15px)}
 .btn.primary:hover{background:var(--brand-dark)}
 .hero{padding:clamp(32px,8vw,56px) 0 clamp(16px,4vw,24px)}
 .hero-grid{display:grid; grid-template-columns:1fr; gap:clamp(24px,6vw,36px); align-items:center}
+/* Hero video section */
+.hero-video-section{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.hero-video{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:1;
+  -webkit-appearance:none;
+  appearance:none;
+}
+.hero-overlay{
+  position:relative;
+  z-index:2;
+  width:100%;
+  padding:clamp(80px,15vw,120px) 0;
+  background:linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+  color:#fff;
+  text-align:center;
+}
+.hero-overlay .eyebrow{color:#fff}
+.hero-overlay h1{
+  font-size:clamp(32px,6vw,64px);
+  line-height:1.05;
+  margin:clamp(12px,3vw,20px) 0 clamp(16px,4vw,24px);
+  color:#fff;
+}
+.hero-overlay .sub{
+  color:rgba(255,255,255,0.9);
+  font-size:clamp(16px,2.5vw,20px);
+  margin-bottom:clamp(16px,4vw,24px);
+}
+.hero-overlay .badges{
+  justify-content:center;
+}
 .eyebrow{display:inline-flex; gap:8px; font-weight:700; color:var(--brand); font-size:clamp(14px,2.5vw,16px)}
 .hero h1{font-size:clamp(28px,6vw,60px); line-height:1.05; margin:clamp(8px,2vw,10px) 0 clamp(6px,1.5vw,8px)}
 .sub{color:#4b5563; font-size:clamp(15px,2.5vw,18px); margin-bottom:clamp(12px,3vw,18px)}
@@ -299,7 +344,24 @@ video.precision-video::-moz-media-controls-panel {
 .fullwidth-video:hover{
   opacity:0.95;
 }
-/* Hide native video control styling for fullwidth video */
+/* Hide native video control styling for hero and fullwidth video */
+.hero-video::-webkit-media-controls-panel,
+.hero-video::-webkit-media-controls-play-button,
+.hero-video::-webkit-media-controls-current-time-display,
+.hero-video::-webkit-media-controls-time-remaining-display,
+.hero-video::-webkit-media-controls-timeline,
+.hero-video::-webkit-media-controls-volume-slider,
+.hero-video::-webkit-media-controls-mute-button,
+.hero-video::-webkit-media-controls-fullscreen-button {
+  display:none !important;
+}
+.hero-video::-webkit-media-controls-enclosure {
+  display:none !important;
+}
+.hero-video::-moz-media-controls,
+.hero-video::-moz-media-controls-panel {
+  display:none !important;
+}
 .fullwidth-video::-webkit-media-controls-panel,
 .fullwidth-video::-webkit-media-controls-play-button,
 .fullwidth-video::-webkit-media-controls-current-time-display,

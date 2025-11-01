@@ -108,6 +108,45 @@ function initBehaviors(){
       console.log('Video handler attached to precision video');
     });
     
+    // Setup handlers for hero video
+    document.querySelectorAll('.hero-video-section').forEach(section => {
+      const video = section.querySelector('video.hero-video');
+      if (!video || section.dataset.handlerAttached === 'true') return;
+      
+      section.dataset.handlerAttached = 'true';
+      
+      // Ensure video has volume set initially
+      if (video.volume === 0 || video.volume < 1) {
+        video.volume = 1.0;
+      }
+      
+      // Ensure video autoplays
+      if (video.paused) {
+        video.play().catch(err => {
+          console.log('Hero video autoplay blocked:', err);
+        });
+      }
+      
+      // Re-enable autoplay if video ends (for loop)
+      video.addEventListener('ended', () => {
+        video.currentTime = 0;
+        video.play();
+      });
+      
+      const clickHandler = (e) => {
+        // Don't intercept clicks on buttons/links in overlay
+        if (e.target.closest('a, .btn')) return;
+        e.preventDefault();
+        e.stopPropagation();
+        handleVideoClick(video);
+      };
+      
+      section.addEventListener('click', clickHandler);
+      video.addEventListener('click', clickHandler);
+      
+      console.log('Video handler attached to hero video');
+    });
+    
     // Setup handlers for fullwidth video at bottom
     document.querySelectorAll('.video-fullwidth-section').forEach(section => {
       const video = section.querySelector('video.fullwidth-video');
