@@ -102,21 +102,35 @@ function initBehaviors(){
       return;
     }
     
-    console.log('Video clicked, unmuting and going fullscreen');
+    console.log('Video clicked, enabling sound first');
     
-    // Unmute video when user clicks (enables sound)
+    // First, unmute and enable sound
     if (video.muted) {
       video.muted = false;
       video.volume = 1.0; // Ensure volume is at max
-      video.play().catch(err => {
-        console.log('Play error:', err);
-        // If autoplay fails, try again after user interaction
-        setTimeout(() => {
-          video.play().catch(e => console.log('Retry play error:', e));
-        }, 100);
-      });
+      
+      // Play with sound enabled
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          console.log('Video playing with sound enabled');
+          // After sound is enabled and playing, then go fullscreen
+          setTimeout(() => {
+            goFullscreen(video);
+          }, 100);
+        }).catch(err => {
+          console.log('Play error:', err);
+          // Try to go fullscreen anyway
+          goFullscreen(video);
+        });
+      }
+    } else {
+      // Already unmuted, just go fullscreen
+      goFullscreen(video);
     }
-    
+  }
+  
+  function goFullscreen(video) {
     // Check if video supports fullscreen
     if (video.requestFullscreen) {
       video.requestFullscreen().catch(err => console.log('Fullscreen error:', err));
