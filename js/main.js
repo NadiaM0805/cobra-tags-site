@@ -83,6 +83,19 @@ function initBehaviors(){
         video.volume = 1.0;
       }
       
+      // Ensure video autoplays (even if browser blocked it)
+      if (video.paused) {
+        video.play().catch(err => {
+          console.log('Autoplay blocked, will play on user interaction:', err);
+        });
+      }
+      
+      // Re-enable autoplay if video ends (for loop)
+      video.addEventListener('ended', () => {
+        video.currentTime = 0;
+        video.play();
+      });
+      
       const clickHandler = (e) => {
         e.preventDefault();
         e.stopPropagation();
