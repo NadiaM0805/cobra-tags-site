@@ -48,9 +48,13 @@ function initBehaviors(){
   // Setup video click handlers after partials load
   setupVideoHandlers();
   
-  // Also watch for dynamically added videos
+  // Also watch for dynamically added videos (debounced)
+  let handlerTimeout;
   const observer = new MutationObserver(() => {
-    setupVideoHandlers();
+    clearTimeout(handlerTimeout);
+    handlerTimeout = setTimeout(() => {
+      setupVideoHandlers();
+    }, 100);
   });
   observer.observe(document.body, { childList: true, subtree: true });
   
@@ -74,7 +78,12 @@ function initBehaviors(){
   }
   
   function handleVideoClick(video) {
-    if (!video) return;
+    if (!video) {
+      console.log('No video found');
+      return;
+    }
+    
+    console.log('Video clicked, unmuting and going fullscreen');
     
     // Unmute video when user clicks (enables sound)
     if (video.muted) {
