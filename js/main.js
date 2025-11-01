@@ -78,6 +78,11 @@ function initBehaviors(){
       
       container.dataset.handlerAttached = 'true';
       
+      // Ensure video has volume set initially
+      if (video.volume === 0 || video.volume < 1) {
+        video.volume = 1.0;
+      }
+      
       const clickHandler = (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -86,6 +91,8 @@ function initBehaviors(){
       
       container.addEventListener('click', clickHandler);
       video.addEventListener('click', clickHandler);
+      
+      console.log('Video handler attached to precision video');
     });
   }
   
@@ -100,7 +107,14 @@ function initBehaviors(){
     // Unmute video when user clicks (enables sound)
     if (video.muted) {
       video.muted = false;
-      video.play().catch(err => console.log('Play error:', err));
+      video.volume = 1.0; // Ensure volume is at max
+      video.play().catch(err => {
+        console.log('Play error:', err);
+        // If autoplay fails, try again after user interaction
+        setTimeout(() => {
+          video.play().catch(e => console.log('Retry play error:', e));
+        }, 100);
+      });
     }
     
     // Check if video supports fullscreen
@@ -115,15 +129,28 @@ function initBehaviors(){
     }
   }
   
-  // Also allow right-click or double-click to just unmute without fullscreen
+  // Also allow double-click to just unmute without fullscreen
   document.addEventListener('dblclick', e => {
     const video = e.target.closest('video.precision-video');
     if (video && video.muted) {
       e.preventDefault();
       e.stopPropagation();
       video.muted = false;
+      video.volume = 1.0;
       video.play().catch(err => console.log('Play error:', err));
     }
+  });
+  
+  // Listen for volume changes to verify sound is working
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      const videos = document.querySelectorAll('video.precision-video');
+      videos.forEach(video => {
+        video.addEventListener('volumechange', () => {
+          console.log('Volume changed:', video.volume, 'Muted:', video.muted);
+        });
+      });
+    }, 1000);
   });
 
   // Restore video state when exiting fullscreen (keep sound unmuted)
