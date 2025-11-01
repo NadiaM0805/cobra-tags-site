@@ -114,6 +114,17 @@ function initBehaviors(){
       video.msRequestFullscreen();
     }
   }
+  
+  // Also allow right-click or double-click to just unmute without fullscreen
+  document.addEventListener('dblclick', e => {
+    const video = e.target.closest('video.precision-video');
+    if (video && video.muted) {
+      e.preventDefault();
+      e.stopPropagation();
+      video.muted = false;
+      video.play().catch(err => console.log('Play error:', err));
+    }
+  });
 
   // Restore video state when exiting fullscreen (keep sound unmuted)
   document.addEventListener('fullscreenchange', () => {
