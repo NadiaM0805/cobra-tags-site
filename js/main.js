@@ -45,9 +45,33 @@ function initBehaviors(){
     try { jingle.muted = false; jingle.play(); } catch (_) {}
   });
 
-  // Fullscreen video functionality with sound
+  // Fullscreen video functionality with sound (event delegation works after partials load)
   document.addEventListener('click', e => {
-    const video = e.target.closest('video.precision-video, video.video');
+    // Check if clicking on video or its parent container
+    const video = e.target.closest('video.precision-video, video.video') || 
+                  (e.target.tagName === 'VIDEO' ? e.target : null);
+    
+    // Also check if clicking on the container (phone-shot or video-wrap div)
+    if (!video) {
+      const container = e.target.closest('.phone-shot, .video-wrap > div');
+      if (container) {
+        const vid = container.querySelector('video.precision-video, video.video');
+        if (vid) {
+          e.preventDefault();
+          e.stopPropagation();
+          handleVideoClick(vid);
+          return;
+        }
+      }
+      return;
+    }
+    
+    e.preventDefault();
+    e.stopPropagation();
+    handleVideoClick(video);
+  });
+  
+  function handleVideoClick(video) {
     if (!video) return;
     
     // Unmute video when user clicks (enables sound)
@@ -66,7 +90,7 @@ function initBehaviors(){
     } else if (video.msRequestFullscreen) {
       video.msRequestFullscreen();
     }
-  });
+  }
 
   // Restore video state when exiting fullscreen (keep sound unmuted)
   document.addEventListener('fullscreenchange', () => {

@@ -66,6 +66,7 @@ nav a{color:#1f2937; font-weight:600; font-size:clamp(13px,2vw,15px)}
 /* Fullscreen and sound icon overlay for how-it-works video */
 .video-wrap > div{
   position:relative;
+  cursor:pointer;
 }
 .video-wrap > div::before{
   content:'🔊';
@@ -139,6 +140,8 @@ nav a{color:#1f2937; font-weight:600; font-size:clamp(13px,2vw,15px)}
   background:#fff;
   border-radius:24px; border:none; padding:0;
   display:flex; align-items:center; justify-content:center; overflow:hidden;
+  position:relative;
+  cursor:pointer;
 }
 .phone-shot img{width:100%; height:100%; object-fit:cover; filter:drop-shadow(0 30px 35px rgba(0,0,0,.16))}
 .ticks{margin:14px 0 0; padding-left:18px}
@@ -169,9 +172,6 @@ nav a{color:#1f2937; font-weight:600; font-size:clamp(13px,2vw,15px)}
   opacity:0.95;
 }
 /* Fullscreen and sound icon overlay for precision video */
-.phone-shot{
-  position:relative;
-}
 .phone-shot::before{
   content:'🔊';
   position:absolute;
