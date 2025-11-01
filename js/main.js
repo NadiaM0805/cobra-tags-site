@@ -23,11 +23,22 @@ function initBehaviors(){
       if (p.card)  document.querySelector('#price-card').textContent = p.card;
     }).catch(()=>{});
 
-  const params = new URLSearchParams(location.hash.replace('#','').split('&').map(x=>x.split('=')));
-  if(params.get('pr')){
-    const [roundP, cardP] = params.get('pr').split(',');
-    if(roundP) document.querySelector('#price-round').textContent = roundP;
-    if(cardP) document.querySelector('#price-card').textContent = cardP;
+  // Parse hash parameters safely
+  try {
+    const hash = location.hash.replace('#','');
+    if (hash) {
+      const params = new URLSearchParams(hash.split('&').map(x => {
+        const parts = x.split('=');
+        return parts.length === 2 ? [parts[0], parts[1]] : [parts[0], ''];
+      }));
+      if(params.get('pr')){
+        const [roundP, cardP] = params.get('pr').split(',');
+        if(roundP) document.querySelector('#price-round').textContent = roundP;
+        if(cardP) document.querySelector('#price-card').textContent = cardP;
+      }
+    }
+  } catch (e) {
+    // Ignore hash parsing errors
   }
 
   document.addEventListener('click', e=>{
