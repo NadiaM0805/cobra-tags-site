@@ -45,31 +45,43 @@ function initBehaviors(){
     try { jingle.muted = false; jingle.play(); } catch (_) {}
   });
 
-  // Fullscreen video functionality with sound (event delegation works after partials load)
-  document.addEventListener('click', e => {
-    // Check if clicking on video or its parent container
-    const video = e.target.closest('video.precision-video, video.video') || 
-                  (e.target.tagName === 'VIDEO' ? e.target : null);
-    
-    // Also check if clicking on the container (phone-shot or video-wrap div)
-    if (!video) {
-      const container = e.target.closest('.phone-shot, .video-wrap > div');
-      if (container) {
-        const vid = container.querySelector('video.precision-video, video.video');
-        if (vid) {
-          e.preventDefault();
-          e.stopPropagation();
-          handleVideoClick(vid);
-          return;
-        }
-      }
-      return;
-    }
-    
-    e.preventDefault();
-    e.stopPropagation();
-    handleVideoClick(video);
+  // Setup video click handlers after partials load
+  setupVideoHandlers();
+  
+  // Also watch for dynamically added videos
+  const observer = new MutationObserver(() => {
+    setupVideoHandlers();
   });
+  observer.observe(document.body, { childList: true, subtree: true });
+  
+  function setupVideoHandlers() {
+    // Remove old handlers to avoid duplicates
+    document.querySelectorAll('.phone-shot, .video-wrap > div').forEach(container => {
+      const newContainer = container.cloneNode(true);
+      container.parentNode?.replaceChild(newContainer, container);
+    });
+    
+    // Find all video containers and attach handlers
+    document.querySelectorAll('.phone-shot, .video-wrap > div').forEach(container => {
+      const video = container.querySelector('video.precision-video, video.video');
+      if (!video || container.dataset.handlerAttached) return;
+      
+      container.dataset.handlerAttached = 'true';
+      
+      container.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        handleVideoClick(video);
+      });
+      
+      // Also allow direct clicks on video
+      video.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        handleVideoClick(video);
+      });
+    });
+  }
   
   function handleVideoClick(video) {
     if (!video) return;
