@@ -339,6 +339,12 @@ video.precision-video::-moz-media-controls-panel {
 #features .features-section{
   padding-top:clamp(32px,8vw,56px);
   padding-bottom:clamp(24px,6vw,32px);
+  text-align:center;
+}
+#features .features-section .steps{
+  justify-items:center;
+  max-width:800px;
+  margin:0 auto;
 }
 #packaging .packaging-section{
   padding-top:0;
