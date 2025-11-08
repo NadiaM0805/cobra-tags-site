@@ -183,6 +183,43 @@ function initBehaviors(){
       
       console.log('Video handler attached to fullwidth video');
     });
+    
+    // Setup handlers for ping video
+    document.querySelectorAll('.pf-shot').forEach(container => {
+      const video = container.querySelector('video.ping-video');
+      if (!video || container.dataset.handlerAttached === 'true') return;
+      
+      container.dataset.handlerAttached = 'true';
+      
+      // Ensure video has volume set initially
+      if (video.volume === 0 || video.volume < 1) {
+        video.volume = 1.0;
+      }
+      
+      // Ensure video autoplays
+      if (video.paused) {
+        video.play().catch(err => {
+          console.log('Ping video autoplay blocked:', err);
+        });
+      }
+      
+      // Re-enable autoplay if video ends (for loop)
+      video.addEventListener('ended', () => {
+        video.currentTime = 0;
+        video.play();
+      });
+      
+      const clickHandler = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        handleVideoClick(video);
+      };
+      
+      container.addEventListener('click', clickHandler);
+      video.addEventListener('click', clickHandler);
+      
+      console.log('Video handler attached to ping video');
+    });
   }
   
   function handleVideoClick(video) {
@@ -259,7 +296,7 @@ function initBehaviors(){
   // Restore video state when exiting fullscreen (keep sound unmuted)
   document.addEventListener('fullscreenchange', () => {
     if (!document.fullscreenElement) {
-      const videos = document.querySelectorAll('video.precision-video, video.video');
+      const videos = document.querySelectorAll('video.precision-video, video.ping-video, video.video');
       videos.forEach(v => {
         if (v.paused) v.play(); // Resume if paused
       });
@@ -267,7 +304,7 @@ function initBehaviors(){
   });
   document.addEventListener('webkitfullscreenchange', () => {
     if (!document.webkitFullscreenElement) {
-      const videos = document.querySelectorAll('video.precision-video, video.video');
+      const videos = document.querySelectorAll('video.precision-video, video.ping-video, video.video');
       videos.forEach(v => {
         if (v.paused) v.play();
       });

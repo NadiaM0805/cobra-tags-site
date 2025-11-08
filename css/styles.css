@@ -357,6 +357,44 @@ video.precision-video::-moz-media-controls-panel {
 .ping-find .lead{color:#4b5563}
 .pf-shot{display:flex; align-items:center; justify-content:center; padding:0; background:none; border:none}
 .pf-shot img{width:min(100%,520px); height:auto; display:block; filter:drop-shadow(0 24px 30px rgba(0,0,0,.12))}
+/* Ping video - seamless image-like styling */
+.ping-video{
+  width:min(100%,520px);
+  height:auto;
+  display:block;
+  border:0;
+  outline:0;
+  border-radius:16px;
+  background:#fff;
+  -webkit-appearance:none;
+  appearance:none;
+  object-fit:cover;
+  cursor:pointer;
+  position:relative;
+  will-change:auto;
+  transition:opacity 0.2s;
+}
+.ping-video:hover{
+  opacity:0.95;
+}
+/* Hide native video controls for ping video */
+video.ping-video::-webkit-media-controls-panel,
+video.ping-video::-webkit-media-controls-play-button,
+video.ping-video::-webkit-media-controls-current-time-display,
+video.ping-video::-webkit-media-controls-time-remaining-display,
+video.ping-video::-webkit-media-controls-timeline,
+video.ping-video::-webkit-media-controls-volume-slider,
+video.ping-video::-webkit-media-controls-mute-button,
+video.ping-video::-webkit-media-controls-fullscreen-button {
+  display:none !important;
+}
+video.ping-video::-webkit-media-controls-enclosure {
+  display:none !important;
+}
+video.ping-video::-moz-media-controls,
+video.ping-video::-moz-media-controls-panel {
+  display:none !important;
+}
 @media (max-width:900px){
   .ping-grid{grid-template-columns:1fr}
 }
