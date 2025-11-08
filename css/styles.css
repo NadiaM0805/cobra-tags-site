@@ -399,7 +399,41 @@ video.precision-video::-moz-media-controls-panel {
   align-items:center;
 }
 .ping-find .xxl{font-size:clamp(28px,5vw,48px); line-height:1.08; margin:0 0 10px}
-.ping-find .lead{color:#4b5563}
+.ping-find .lead{color:#4b5563; margin-bottom:clamp(20px,4vw,28px)}
+/* Icon grid for ping-find section */
+.icon-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
+  gap:clamp(12px,3vw,20px);
+  margin-top:clamp(20px,4vw,28px);
+}
+.icon-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  text-align:center;
+}
+.icon-item .icon{
+  font-size:clamp(24px,4vw,32px);
+  line-height:1;
+  display:block;
+}
+.icon-item .icon-label{
+  font-size:clamp(12px,2vw,14px);
+  color:var(--muted);
+  font-weight:500;
+}
+@media (min-width: 600px){
+  .icon-grid{
+    grid-template-columns:repeat(5,1fr);
+  }
+}
+@media (max-width: 599px){
+  .icon-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
 .pf-shot{display:flex; align-items:center; justify-content:center; padding:0; background:none; border:none}
 .pf-shot img{width:min(100%,520px); height:auto; display:block; filter:drop-shadow(0 24px 30px rgba(0,0,0,.12))}
 /* Ping video - seamless image-like styling */
