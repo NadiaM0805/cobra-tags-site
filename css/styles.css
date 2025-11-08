@@ -391,6 +391,12 @@ video.precision-video::-moz-media-controls-panel {
   .wallet-card-grid{grid-template-columns:1fr}
 }
 
+/* Use cases section with light grey background */
+#use-cases{
+  background:#f7f7f8;
+  margin:0;
+}
+
 /* Ping it. Find it. (no borders) */
 .ping-grid{
   display:grid;
