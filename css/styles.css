@@ -342,9 +342,15 @@ video.precision-video::-moz-media-controls-panel {
   text-align:center;
 }
 #features .features-section .steps{
+  grid-template-columns:repeat(3, 1fr);
   justify-items:center;
-  max-width:800px;
+  max-width:1000px;
   margin:0 auto;
+}
+@media (max-width:900px){
+  #features .features-section .steps{
+    grid-template-columns:1fr;
+  }
 }
 #packaging .packaging-section{
   padding-top:0;
