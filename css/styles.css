@@ -330,6 +330,25 @@ video.precision-video::-moz-media-controls-panel {
   .fine{font-size:12px !important}
 }
 
+/* Packaging section (centered image) */
+.packaging-section{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:clamp(24px,6vw,48px) 0;
+}
+.packaging-image{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+}
+.packaging-image img{
+  width:min(100%,600px);
+  height:auto;
+  display:block;
+}
+
 /* Wallet Card section (no borders) */
 .wallet-card-grid{
   display:grid;
