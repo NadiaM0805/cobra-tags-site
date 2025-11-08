@@ -482,6 +482,8 @@ video.ping-video::-moz-media-controls-panel {
 }
 @media (max-width:900px){
   .ping-grid{grid-template-columns:1fr}
+  .ping-grid > div:first-child{order:2}
+  .ping-grid > .pf-shot{order:1}
 }
 
 /* Full-width video section at bottom */
