@@ -330,12 +330,26 @@ video.precision-video::-moz-media-controls-panel {
   .fine{font-size:12px !important}
 }
 
+/* Features section with light grey background - unified section */
+#features,
+#packaging{
+  background:#f7f7f8;
+  margin:0;
+}
+#features .features-section{
+  padding-top:clamp(32px,8vw,56px);
+  padding-bottom:clamp(24px,6vw,32px);
+}
+#packaging .packaging-section{
+  padding-top:0;
+  padding-bottom:clamp(32px,8vw,56px);
+}
+
 /* Packaging section (centered image) */
 .packaging-section{
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:clamp(24px,6vw,48px) 0;
 }
 .packaging-image{
   display:flex;
