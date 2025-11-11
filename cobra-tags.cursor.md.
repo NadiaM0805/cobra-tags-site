@@ -251,7 +251,7 @@ function initBehaviors(){
     <div class="instructions">
       <h3 style="margin-top:0">Quick Start</h3>
       <ol>
-        <li>Unbox your Cobra Tag and remove the battery tab.</li>
+        <li>Unbox your Cobra Tag.</li>
         <li>Choose platform:
           <ul>
             <li><b>iPhone</b>: Find My → <i>Items</i> → <b>+</b> → <i>Other Item</i> → follow prompts.</li>
