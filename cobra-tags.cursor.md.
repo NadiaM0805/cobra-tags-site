@@ -1,0 +1,362 @@
+
+# Bootstrap: Cobra Tags — Static Site (Vanilla HTML/CSS/JS)
+Create this exact folder structure and files. Do NOT use frameworks or build tools.
+
+## FOLDERS
+- index.html
+- css/styles.css
+- js/main.js
+- sections/hero.html
+- sections/features.html
+- sections/use-cases.html
+- sections/how.html
+- sections/pricing.html
+- sections/guarantee.html
+- sections/contact.html
+- data/prices.json
+- assets/placeholder-tag.png            # create a tiny placeholder file
+- assets/video-poster.jpg               # placeholder
+- assets/cobra-tags-instructions.mp4    # placeholder (0 bytes ok)
+- assets/badge-apple.png                # placeholder
+- assets/badge-android.png              # placeholder
+- assets/use-lost-child.jpg             # placeholder
+- assets/use-keys.jpg                   # placeholder
+- assets/use-pets.jpg                   # placeholder
+- assets/use-caravan.jpg                # placeholder
+- assets/use-luggage.jpg                # placeholder
+- assets/use-bike.jpg                   # placeholder
+- README.md
+
+## FILE: index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cobra Tags — Find it. Track it. Never Lose it.</title>
+  <meta name="description" content="Cobra Tags work with Apple Find My and Android Find My Device to help you find keys, bags, pets, bikes and more. One-year replacement guarantee." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Product",
+    "name":"Cobra Tags",
+    "brand":{"@type":"Brand","name":"Cobra Cords"},
+    "description":"Bluetooth trackers that work with Apple Find My and Android Find My Device.",
+    "offers":[{"@type":"Offer","price":"TBD","priceCurrency":"GBP"}]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container topbar">
+      <a class="logo" href="/" aria-label="Cobra Tags">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span>COBRA TAGS</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#use-cases">Use cases</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="btn primary" href="#contact">Email us</a>
+    </div>
+  </header>
+
+  <main id="app">
+    <section id="hero" data-partial="sections/hero.html"></section>
+    <section id="features" data-partial="sections/features.html"></section>
+    <section id="use-cases" data-partial="sections/use-cases.html"></section>
+    <section id="how" data-partial="sections/how.html"></section>
+    <section id="pricing" data-partial="sections/pricing.html"></section>
+    <section id="guarantee" data-partial="sections/guarantee.html"></section>
+    <section id="contact" data-partial="sections/contact.html"></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-row">
+        <div>© <span id="year"></span> Cobra Cords. All rights reserved.</div>
+        <div>PO Box 210, Liverpool, L18 9SWF • United Kingdom</div>
+      </div>
+      <p class="fine">Cobra Tags are compatible with Apple Find My (iOS 14.5+) and Android Find My Device (supported devices). Apple, iPhone and Android are trademarks of their respective owners.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
+
+## FILE: css/styles.css
+:root{
+  --brand:#D33C2D; --brand-dark:#B22F23; --ink:#111; --muted:#667085;
+  --bg:#fff; --panel:#f7f7f8; --ring:rgba(211,60,45,.25); --radius:16px;
+}
+*{box-sizing:border-box} html,body{margin:0}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  color:var(--ink); background:var(--bg); line-height:1.55}
+.container{max-width:1128px; margin-inline:auto; padding:clamp(16px,2vw,28px)}
+a{color:var(--brand); text-decoration:none} a:hover{text-decoration:underline}
+.site-header{position:sticky; top:0; backdrop-filter:saturate(160%) blur(6px);
+  background:color-mix(in srgb, var(--bg) 85%, transparent); border-bottom:1px solid #ececec; z-index:40}
+.topbar{display:flex; align-items:center; justify-content:space-between; gap:16px}
+.logo{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px; color:inherit}
+.logo-mark{width:28px; height:28px; border-radius:50%; background:#222; box-shadow:inset 0 0 0 2px #000, inset 0 0 0 5px #222}
+nav ul{list-style:none; display:flex; gap:18px; margin:0; padding:0}
+nav a{color:#1f2937; font-weight:600}
+.btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; border:1px solid #e7e7e9; background:#fff; font-weight:700}
+.btn.primary{border-color:transparent; background:var(--brand); color:#fff; box-shadow:0 10px 18px -8px var(--ring)}
+.btn.primary:hover{background:var(--brand-dark)}
+.hero{padding:56px 0 24px}
+.hero-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:36px; align-items:center}
+.eyebrow{display:inline-flex; gap:10px; font-weight:700; color:var(--brand)}
+.hero h1{font-size:clamp(32px,4.8vw,60px); line-height:1.05; margin:10px 0 8px}
+.sub{color:#4b5563; font-size:clamp(16px,2vw,18px)}
+.badges{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 8px}
+.badge{display:inline-flex; align-items:center; gap:10px; padding:10px 12px; border:1px solid #e8e8ea; border-radius:12px; background:#fff}
+.badge img{width:22px; height:22px}
+.product-shot{background:radial-gradient(60% 60% at 50% 42%, #efefef, #ffffff 60%);
+  border-radius:24px; border:1px solid #ededf0; padding:28px; min-height:380px; display:flex; align-items:center; justify-content:center}
+.product-shot img{width:min(88%,520px); height:auto; filter:drop-shadow(0 30px 35px rgba(0,0,0,.16))}
+.section{padding:64px 0}
+.section h2{font-size:clamp(26px,3vw,38px); margin:0 0 8px}
+.section p.lead{color:var(--muted); margin:0 0 26px}
+.grid{display:grid; gap:18px}
+.grid.cards{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--panel); border:1px solid #ececf0; border-radius:var(--radius); overflow:hidden}
+.card img{display:block; width:100%; aspect-ratio:4/3; object-fit:cover}
+.card .cap{padding:12px 14px; font-weight:600}
+.steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px}
+.step{border:1px solid #ececf0; border-radius:var(--radius); padding:16px; background:#fff}
+.video-wrap{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+.video{aspect-ratio:16/9; width:100%; background:#000; border-radius:16px; overflow:hidden; border:1px solid #1f2937}
+.instructions{background:#fff; border:1px solid #ececf0; border-radius:16px; padding:18px}
+.price-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px}
+.price-card{border:1px solid #ececf0; border-radius:20px; padding:22px; background:#fff}
+.price{font-size:clamp(26px,3vw,36px); font-weight:800}
+.price small{font-weight:600; color:var(--muted)}
+.features{margin:12px 0 0; padding:0; list-style:none}
+.features li{margin:8px 0}
+.contact{display:grid; grid-template-columns:1.2fr 1fr; gap:24px}
+.panel{background:#fff; border:1px solid #ececf0; border-radius:16px; padding:18px}
+.site-footer{padding:40px 0; border-top:1px solid #ececec; color:#6b7280}
+.footer-row{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap}
+.fine{font-size:13px; color:#98a2b3}
+@media (max-width:900px){ .hero-grid{grid-template-columns:1fr} .video-wrap{grid-template-columns:1fr} .contact{grid-template-columns:1fr} }
+
+## FILE: js/main.js
+document.getElementById('year').textContent = new Date().getFullYear();
+
+async function loadPartials(){
+  const sections = document.querySelectorAll('[data-partial]');
+  for (const sec of sections){
+    const url = sec.getAttribute('data-partial');
+    try {
+      const res = await fetch(url);
+      sec.innerHTML = await res.text();
+    } catch (e) {
+      sec.innerHTML = '<div class="container"><p>Failed to load section.</p></div>';
+      console.error('Partial load error:', url, e);
+    }
+  }
+}
+loadPartials().then(initBehaviors);
+
+function initBehaviors(){
+  fetch('data/prices.json')
+    .then(r => r.json())
+    .then(p => {
+      if (p.round) document.querySelector('#price-round').textContent = p.round;
+      if (p.card)  document.querySelector('#price-card').textContent = p.card;
+    }).catch(()=>{});
+
+  const params = new URLSearchParams(location.hash.replace('#','').split('&').map(x=>x.split('=')));
+  if(params.get('pr')){
+    const [roundP, cardP] = params.get('pr').split(',');
+    if(roundP) document.querySelector('#price-round').textContent = roundP;
+    if(cardP) document.querySelector('#price-card').textContent = cardP;
+  }
+
+  document.addEventListener('click', e=>{
+    const btn = e.target.closest('[data-copy-email]');
+    if(!btn) return;
+    const email = document.querySelector('#email')?.textContent?.trim();
+    if(email){ navigator.clipboard.writeText(email).then(()=>alert('Email copied: '+email)); }
+  });
+}
+
+## FILE: sections/hero.html
+<div class="container hero">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">Find it. Track it. <span style="color:var(--ink)">Never Lose it.</span></div>
+      <h1>Smart trackers that work with your phone.</h1>
+      <p class="sub">Cobra Tags connect to Apple <b>Find My</b> and Android <b>Find My Device</b>. Backed by our one-year replacement guarantee.</p>
+      <div class="badges">
+        <div class="badge"><img alt="Apple Find My" src="assets/badge-apple.png"/> Works with Apple Find My</div>
+        <div class="badge"><img alt="Android Find My Device" src="assets/badge-android.png"/> Works with Android Find My Device</div>
+        <div class="badge">1-Year Guarantee</div>
+      </div>
+      <div style="display:flex; gap:12px; margin-top:14px">
+        <a class="btn primary" href="#pricing">See prices</a>
+        <a class="btn" href="#how">How it works</a>
+      </div>
+    </div>
+    <div class="product-shot"><img src="assets/placeholder-tag.png" alt="Cobra Tag round tracker"/></div>
+  </div>
+</div>
+
+## FILE: sections/features.html
+<div class="container section">
+  <h2>Why Cobra Tags?</h2>
+  <p class="lead">Powerful network tracking, long battery life, and a key-friendly design—without the faff.</p>
+  <div class="steps">
+    <div class="step"><b>Precision tracking</b> Locate items on a live map and play a sound to find them nearby.</div>
+    <div class="step"><b>Works with your phone</b> Pair with iPhone (Find My) or Android (Find My Device).</div>
+    <div class="step"><b>Long battery life</b> Battery is replaceable when needed.*</div>
+    <div class="step"><b>One-year guarantee</b> Fault within a year? We’ll replace it.</div>
+  </div>
+  <p class="fine">*Battery replacement not included in guarantee.</p>
+</div>
+
+## FILE: sections/use-cases.html
+<div class="container section">
+  <h2>Popular use cases</h2>
+  <p class="lead">Attach, tap to pair, and relax.</p>
+  <div class="grid cards">
+    <figure class="card"><img src="assets/use-lost-child.jpg" alt="Reuniting with a lost child"><figcaption class="cap">Lost child*</figcaption></figure>
+    <figure class="card"><img src="assets/use-keys.jpg" alt="Searching for keys"><figcaption class="cap">Misplaced keys</figcaption></figure>
+    <figure class="card"><img src="assets/use-pets.jpg" alt="Dog with tag"><figcaption class="cap">Run-away pets</figcaption></figure>
+    <figure class="card"><img src="assets/use-caravan.jpg" alt="Caravan"><figcaption class="cap">Stolen caravan</figcaption></figure>
+    <figure class="card"><img src="assets/use-luggage.jpg" alt="Suitcase"><figcaption class="cap">Track your suitcase</figcaption></figure>
+    <figure class="card"><img src="assets/use-bike.jpg" alt="Bike"><figcaption class="cap">Missing bike</figcaption></figure>
+  </div>
+  <p class="fine">*Do not attach trackers directly to children. Use responsibly.</p>
+</div>
+
+## FILE: sections/how.html
+<div class="container section">
+  <h2>How it works</h2>
+  <div class="video-wrap">
+    <div>
+      <video class="video" controls poster="assets/video-poster.jpg">
+        <source src="assets/cobra-tags-instructions.mp4" type="video/mp4"/>
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="instructions">
+      <h3 style="margin-top:0">Quick Start</h3>
+      <ol>
+        <li>Unbox your Cobra Tag and remove the battery tab.</li>
+        <li>Choose platform:
+          <ul>
+            <li><b>iPhone</b>: Find My → <i>Items</i> → <b>+</b> → <i>Other Item</i> → follow prompts.</li>
+            <li><b>Android</b>: Find My Device → <i>Items</i> → <b>Add</b> → follow prompts.</li>
+          </ul>
+        </li>
+        <li>Name your tag (Keys, Bike, Luggage, etc.).</li>
+        <li>Attach via keyring or stick-on card.</li>
+      </ol>
+      <p class="fine">Full instructions are printed in the box and shown in the video.</p>
+    </div>
+  </div>
+</div>
+
+## FILE: sections/pricing.html
+<div class="container section">
+  <h2>Prices</h2>
+  <p class="lead">Two styles, same powerful tracking. Bulk packs available on request.</p>
+  <div class="price-grid">
+    <div class="price-card">
+      <h3 style="margin:0">Round Tag</h3>
+      <div class="price">£<span id="price-round">TBD</span> <small>incl. VAT</small></div>
+      <ul class="features">
+        <li>• Keyring design</li>
+        <li>• Works with Apple Find My & Android Find My Device</li>
+        <li>• Replaceable battery</li>
+        <li>• 1-year replacement guarantee</li>
+      </ul>
+      <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap">
+        <a class="btn primary" href="#contact">Email to enquire</a>
+        <a class="btn" href="#how">See setup</a>
+      </div>
+    </div>
+    <div class="price-card">
+      <h3 style="margin:0">Slim Card</h3>
+      <div class="price">£<span id="price-card">TBD</span> <small>incl. VAT</small></div>
+      <ul class="features">
+        <li>• Wallet-friendly, credit-card thin</li>
+        <li>• Works with Apple Find My & Android Find My Device</li>
+        <li>• Long battery life</li>
+        <li>• 1-year replacement guarantee</li>
+      </ul>
+      <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap">
+        <a class="btn primary" href="#contact">Email to enquire</a>
+        <a class="btn" href="#how">See setup</a>
+      </div>
+    </div>
+  </div>
+  <p class="fine">For retail or corporate orders, ask about volume pricing.</p>
+</div>
+
+## FILE: sections/guarantee.html
+<div class="container section">
+  <h2>Guarantee & returns</h2>
+  <div class="panel">
+    <p><b>One-Year Replacement Offer:</b> If a fault occurs within one year of purchase, you are entitled to a one-time replacement. Battery replacement is not included.</p>
+    <p><b>Returns:</b> Items must be posted with a note including your name, address, mobile number and email. No walk-ins or drop-offs will be accepted.</p>
+    <p><b>Return address:</b> Cobra Cords, PO Box 210, Liverpool, L18 9SWF, United Kingdom.</p>
+  </div>
+</div>
+
+## FILE: sections/contact.html
+<div class="container section">
+  <h2>Contact</h2>
+  <div class="contact">
+    <div class="panel">
+      <p>Questions, prices, bulk orders? Email us and we’ll get back to you quickly.</p>
+      <p><b>Email:</b> <a id="email" href="mailto:tags@cobracords.com">tags@cobracords.com</a>
+        <button class="btn" data-copy-email>Copy</button></p>
+      <p class="fine">We can also use <i>support@cobracords.com</i>, <i>hello@cobratags.com</i>, or <i>idealaccessories@hotmail.com</i>.</p>
+    </div>
+    <div class="panel">
+      <h3 style="margin-top:0">What to include</h3>
+      <ul>
+        <li>Which style (Round Tag or Slim Card)</li>
+        <li>Quantity</li>
+        <li>Delivery country</li>
+        <li>Your name & mobile</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+## FILE: data/prices.json
+{ "round": "TBD", "card": "TBD" }
+
+## FILE: README.md
+# Cobra Tags — Find it. Track it. Never Lose it.
+Buildless, responsive one-pager. Vanilla HTML/CSS/JS, modular via `/sections`.
+
+### Quick start
+- Open `index.html` directly OR run a static server:
+  - Python: `python3 -m http.server 5173`
+  - Node: `npx http-server -p 5173`
+- Replace assets in `/assets`, edit copy in `/sections/*`.
+- Update prices in `/data/prices.json` or via URL hash `#pr=19.99,24.99` (Round,Card).
+
+### Folders
+- `sections/` — modular HTML partials.
+- `css/styles.css` — tokens/layout/components.
+- `js/main.js` — partial loader, prices, helpers.
+- `assets/` — images + video placeholders.
+- `data/prices.json` — source of truth for prices.
+
+© Cobra Cords. PO Box 210, Liverpool, L18 9SWF.
+
+## PLACEHOLDER FILES
+For all images and mp4 listed in /assets, create minimal placeholder files so the site runs; I will replace them later with real media.
