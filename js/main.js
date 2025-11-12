@@ -228,9 +228,9 @@ function initBehaviors(){
       return;
     }
     
-    console.log('Video clicked, enabling sound first');
+    console.log('Video clicked, enabling sound');
     
-    // First, unmute and enable sound
+    // Unmute and enable sound
     if (video.muted) {
       video.muted = false;
       video.volume = 1.0; // Ensure volume is at max
@@ -240,32 +240,10 @@ function initBehaviors(){
       if (playPromise !== undefined) {
         playPromise.then(() => {
           console.log('Video playing with sound enabled');
-          // After sound is enabled and playing, then go fullscreen
-          setTimeout(() => {
-            goFullscreen(video);
-          }, 100);
         }).catch(err => {
           console.log('Play error:', err);
-          // Try to go fullscreen anyway
-          goFullscreen(video);
         });
       }
-    } else {
-      // Already unmuted, just go fullscreen
-      goFullscreen(video);
-    }
-  }
-  
-  function goFullscreen(video) {
-    // Check if video supports fullscreen
-    if (video.requestFullscreen) {
-      video.requestFullscreen().catch(err => console.log('Fullscreen error:', err));
-    } else if (video.webkitRequestFullscreen) {
-      video.webkitRequestFullscreen();
-    } else if (video.mozRequestFullScreen) {
-      video.mozRequestFullScreen();
-    } else if (video.msRequestFullscreen) {
-      video.msRequestFullscreen();
     }
   }
   
@@ -293,22 +271,5 @@ function initBehaviors(){
     }, 1000);
   });
 
-  // Restore video state when exiting fullscreen (keep sound unmuted)
-  document.addEventListener('fullscreenchange', () => {
-    if (!document.fullscreenElement) {
-      const videos = document.querySelectorAll('video.precision-video, video.ping-video, video.video');
-      videos.forEach(v => {
-        if (v.paused) v.play(); // Resume if paused
-      });
-    }
-  });
-  document.addEventListener('webkitfullscreenchange', () => {
-    if (!document.webkitFullscreenElement) {
-      const videos = document.querySelectorAll('video.precision-video, video.ping-video, video.video');
-      videos.forEach(v => {
-        if (v.paused) v.play();
-      });
-    }
-  });
 }
 
