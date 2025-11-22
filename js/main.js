@@ -15,7 +15,7 @@ const reviews = [
     rating: 5,
     text: "We keep a Cobra Tag on our spaniel's collar for walks on the downs. She shot off after a squirrel and vanished. I opened Find My, played the sound and followed the beeps. She was happily sniffing bins behind a pub.",
     tag: "Dog on the loose",
-    avatar: "https://via.placeholder.com/72"
+    avatar: "assets/sarahp.png"
   },
   {
     name: "Emma R.",
