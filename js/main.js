@@ -23,7 +23,7 @@ const reviews = [
     rating: 5,
     text: "We tow a little caravan most weekends. There's a tag in the van and another in the car. When we stop at services I always check the map — I like knowing exactly where everything is parked if we ever had to report it.",
     tag: "Caravan peace of mind",
-    avatar: "https://via.placeholder.com/72"
+    avatar: "assets/emmar.png"
   },
   {
     name: "Ben H.",
