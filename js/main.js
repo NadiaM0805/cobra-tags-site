@@ -47,7 +47,7 @@ const reviews = [
     rating: 4,
     text: "I drop a tag in every checked bag when I fly. Watching my luggage move on the map while I'm at the gate is ridiculously reassuring. Once I could see my suitcase stuck in a different terminal before the airline even admitted it.",
     tag: "Airport control freak",
-    avatar: "https://via.placeholder.com/72"
+    avatar: "assets/Tom S.png"
   },
   {
     name: "Rachel G.",
