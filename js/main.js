@@ -7,7 +7,7 @@ const reviews = [
     rating: 5,
     text: "My bike was nicked from outside our block. The Cobra Tag was tucked under the saddle and Find My showed it two streets away. I went with a neighbour, rang the tag and heard it beeping in a shared yard. Got the bike back within an hour.",
     tag: "Stolen bike found",
-    avatar: "https://via.placeholder.com/72"
+    avatar: "assets/Jack.M.jpg"
   },
   {
     name: "Sarah P.",
