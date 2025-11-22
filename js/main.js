@@ -31,7 +31,7 @@ const reviews = [
     rating: 5,
     text: "I'm the sort of person who leaves their wallet on the table and just walks off. The slim card lives in my wallet now. My phone pings the second I get to the door of the café without it.",
     tag: "Chronic wallet forgetter",
-    avatar: "https://via.placeholder.com/72"
+    avatar: "assets/benh.png"
   },
   {
     name: "Lucy T.",
