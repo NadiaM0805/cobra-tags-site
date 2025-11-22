@@ -1,5 +1,64 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+const reviews = [
+  {
+    name: "Jack M.",
+    location: "Liverpool, UK",
+    rating: 5,
+    text: "My bike was nicked from outside our block. The Cobra Tag was tucked under the saddle and Find My showed it two streets away. I went with a neighbour, rang the tag and heard it beeping in a shared yard. Got the bike back within an hour.",
+    tag: "Stolen bike found",
+    avatar: "https://via.placeholder.com/72"
+  },
+  {
+    name: "Sarah P.",
+    location: "Bristol, UK",
+    rating: 5,
+    text: "We keep a Cobra Tag on our spaniel's collar for walks on the downs. She shot off after a squirrel and vanished. I opened Find My, played the sound and followed the beeps. She was happily sniffing bins behind a pub.",
+    tag: "Dog on the loose",
+    avatar: "https://via.placeholder.com/72"
+  },
+  {
+    name: "Emma R.",
+    location: "Manchester, UK",
+    rating: 5,
+    text: "We tow a little caravan most weekends. There's a tag in the van and another in the car. When we stop at services I always check the map — I like knowing exactly where everything is parked if we ever had to report it.",
+    tag: "Caravan peace of mind",
+    avatar: "https://via.placeholder.com/72"
+  },
+  {
+    name: "Ben H.",
+    location: "London, UK",
+    rating: 5,
+    text: "I'm the sort of person who leaves their wallet on the table and just walks off. The slim card lives in my wallet now. My phone pings the second I get to the door of the café without it.",
+    tag: "Chronic wallet forgetter",
+    avatar: "https://via.placeholder.com/72"
+  },
+  {
+    name: "Lucy T.",
+    location: "Leeds, UK",
+    rating: 5,
+    text: "There's a tag on the kids' school bags, one on the house keys and one in the suitcase we use for holidays. I'm much calmer now. If something's missing, I just open the app instead of panicking and turning the house upside down.",
+    tag: "Calm, not frantic",
+    avatar: "https://via.placeholder.com/72"
+  },
+  {
+    name: "Tom S.",
+    location: "Brighton, UK",
+    rating: 4,
+    text: "I drop a tag in every checked bag when I fly. Watching my luggage move on the map while I'm at the gate is ridiculously reassuring. Once I could see my suitcase stuck in a different terminal before the airline even admitted it.",
+    tag: "Airport control freak",
+    avatar: "https://via.placeholder.com/72"
+  },
+  {
+    name: "Rachel G.",
+    location: "Birmingham, UK",
+    rating: 5,
+    text: "Our house eats keys. Now the keys live on a Cobra Tag. If we're running late I just tap play sound and listen for the beeping from whatever coat pocket or toy box they've landed in.",
+    tag: "Key chaos tamer",
+    avatar: "https://via.placeholder.com/72"
+  }
+];
+
 async function loadPartials(){
   const sections = document.querySelectorAll('[data-partial]');
   for (const sec of sections){
