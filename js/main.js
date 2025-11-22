@@ -55,7 +55,7 @@ const reviews = [
     rating: 5,
     text: "Our house eats keys. Now the keys live on a Cobra Tag. If we're running late I just tap play sound and listen for the beeping from whatever coat pocket or toy box they've landed in.",
     tag: "Key chaos tamer",
-    avatar: "https://via.placeholder.com/72"
+    avatar: "assets/rachelg.png"
   }
 ];
 
