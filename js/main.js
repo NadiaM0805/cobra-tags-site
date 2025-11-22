@@ -72,7 +72,11 @@ async function loadPartials(){
     }
   }
 }
-loadPartials().then(initBehaviors);
+loadPartials().then(() => {
+  initBehaviors();
+  // Initialize reviews carousel after partials load
+  setTimeout(() => initReviewsCarousel(), 100);
+});
 
 function initBehaviors(){
   fetch('data/prices.json')
@@ -330,5 +334,99 @@ function initBehaviors(){
     }, 1000);
   });
 
+}
+
+function initReviewsCarousel() {
+  const container = document.getElementById('reviews-container');
+  if (!container || !reviews || reviews.length === 0) return;
+
+  let currentIndex = 0;
+
+  // Render reviews
+  function renderReviews() {
+    container.innerHTML = reviews.map((review, index) => `
+      <div class="review-card ${index === 0 ? 'active' : ''}" data-index="${index}">
+        <div class="review-header">
+          <img src="${review.avatar}" alt="${review.name}" class="review-avatar" />
+          <div class="review-info">
+            <h3 class="review-name">${review.name}</h3>
+            <p class="review-location">${review.location}</p>
+          </div>
+        </div>
+        <div class="review-rating">
+          ${Array.from({length: 5}, (_, i) => 
+            `<span>${i < review.rating ? '★' : '☆'}</span>`
+          ).join('')}
+        </div>
+        <p class="review-text">${review.text}</p>
+        <span class="review-tag">${review.tag}</span>
+      </div>
+    `).join('');
+  }
+
+  // Render dots
+  function renderDots() {
+    const dotsContainer = document.getElementById('carousel-dots');
+    if (!dotsContainer) return;
+    
+    dotsContainer.innerHTML = reviews.map((_, index) => `
+      <button class="carousel-dot ${index === 0 ? 'active' : ''}" data-index="${index}" aria-label="Go to review ${index + 1}"></button>
+    `).join('');
+
+    dotsContainer.querySelectorAll('.carousel-dot').forEach(dot => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.dataset.index);
+        goToReview(index);
+      });
+    });
+  }
+
+  // Go to specific review
+  function goToReview(index) {
+    if (index < 0 || index >= reviews.length) return;
+    
+    currentIndex = index;
+    
+    // Update cards
+    container.querySelectorAll('.review-card').forEach((card, i) => {
+      card.classList.toggle('active', i === index);
+    });
+    
+    // Update dots
+    document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+    
+    // Update buttons
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    if (prevBtn) prevBtn.disabled = index === 0;
+    if (nextBtn) nextBtn.disabled = index === reviews.length - 1;
+  }
+
+  // Navigation handlers
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        goToReview(currentIndex - 1);
+      }
+    });
+  }
+  
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < reviews.length - 1) {
+        goToReview(currentIndex + 1);
+      }
+    });
+  }
+
+  // Initialize
+  renderReviews();
+  renderDots();
+  goToReview(0);
 }
 
