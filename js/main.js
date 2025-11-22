@@ -39,7 +39,7 @@ const reviews = [
     rating: 5,
     text: "There's a tag on the kids' school bags, one on the house keys and one in the suitcase we use for holidays. I'm much calmer now. If something's missing, I just open the app instead of panicking and turning the house upside down.",
     tag: "Calm, not frantic",
-    avatar: "https://via.placeholder.com/72"
+    avatar: "assets/lucyt.png"
   },
   {
     name: "Tom S.",
